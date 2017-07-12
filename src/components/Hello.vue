@@ -9,6 +9,7 @@
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
 import io from 'socket.io-client'
 export default {
   name: 'hello',
@@ -21,7 +22,7 @@ export default {
     const that = this
     // 连接websocket地址
     this.socket = io.connect('http://172.25.3.30:1080')
-    this.socket.on('message', function(obj) {
+    this.getsocket.on('message', function(obj) {
       that.$store.commit('123', obj)
     })
   },
@@ -30,9 +31,14 @@ export default {
   },
   methods: {
     add() {
-      console.log('add')
+      console.log('socket')
     }
-  }
+  },
+  computed: {
+      ...mapGetters([
+        'getsocket'
+      ])
+  },
 }
 </script>
 

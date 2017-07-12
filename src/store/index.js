@@ -6,8 +6,14 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
 	state: {},
-	getters: {},
-	mutations: {},
+	getters: {
+		getsocket: state => state.socket
+	},
+	mutations: {
+		setgetsocket (state, data) {
+	      state.socket = data
+	    }
+	},
 	actions: {}
 })
 export default store
